@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -39,13 +41,16 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section id="herosection" className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left px-6 md:px-32 py-10 bg-secondary gap-10">
-      {/* Text section */}
+    <section
+      id="herosection"
+      className="min-h-screen flex flex-col-reverse md:flex-row items-start md:items-center justify-between px-6 md:px-32 md:py-10 py-32 bg-secondary gap-6 md:gap-10"
+    >
+      {/* Text Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="max-w-xl"
+        className="w-full md:max-w-xl text-center md:text-left"
       >
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold text-primary mb-4 leading-tight">
           Buat Undangan Digital untuk <br />
@@ -73,7 +78,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Image Slider */}
-      <div className="w-full md:w-[400px] lg:w-[500px] h-[320px] sm:h-[420px] md:h-[220px] relative overflow-hidden shrink-0 max-w-full">
+      <div className="w-full md:w-[400px] lg:w-[500px] h-[240px] sm:h-[280px] md:h-[220px] relative overflow-hidden shrink-0 max-w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={images[currentImage]}
@@ -93,7 +98,6 @@ export default function HeroSection() {
           </motion.div>
         </AnimatePresence>
       </div>
-
     </section>
   )
 }
