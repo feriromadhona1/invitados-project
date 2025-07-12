@@ -6,8 +6,9 @@ import { Menu, X } from 'lucide-react'
 
 // 🧠 List menu untuk navigasi
 const navLinks = [
-  { label: 'Fitur', href: '#features' },
+  { label: 'Home', href: '#herosection' },
   { label: 'Tema', href: '#themes' },
+  { label: 'Fitur', href: '#features' },
   { label: 'Harga', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -44,7 +45,7 @@ export default function Navbar() {
             target="_blank"
             className="bg-darkblue text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#1e324d] transition"
           >
-            🎉 Coba Gratis
+            Coba Gratis
           </Link>
         </nav>
       </div>

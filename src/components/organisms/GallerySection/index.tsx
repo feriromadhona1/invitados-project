@@ -4,7 +4,39 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-const themes = [
+const generateThemes = [
+  { name: 'Elegant-Grey', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Black-Java', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Gold', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Luxury-Silver', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Blue-Flowers', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Super-Classic', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Nature', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Aesthetic-Romance', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Grey', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Black-Java', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Gold', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Luxury-Silver', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Blue-Flowers', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Super-Classic', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Nature', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Aesthetic-Romance', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Grey', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Black-Java', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Gold', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Luxury-Silver', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Blue-Flowers', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Super-Classic', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Nature', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Aesthetic-Romance', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Grey', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Black-Java', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Gold', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Luxury-Silver', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Blue-Flowers', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Super-Classic', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Elegant-Nature', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
+  { name: 'Aesthetic-Romance', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
   { name: 'Elegant-Grey', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
   { name: 'Black-Java', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
   { name: 'Elegant-Gold', price: 'Rp.39.000', image: '/images/undangan-online.png', rating: 5 },
@@ -16,8 +48,11 @@ const themes = [
 ]
 
 export default function GallerySection() {
+  const [visibleCount, setVisibleCount] = useState(4)
   const [showModal, setShowModal] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null)
+
+  const visibleThemes = generateThemes.slice(0, visibleCount)
 
   const handleUseTheme = (themeName: string) => {
     setSelectedTheme(themeName)
@@ -29,15 +64,23 @@ export default function GallerySection() {
     window.open(`https://wa.me/6281317185602?text=${message}`, '_blank')
   }
 
+  const handleShowMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 4, generateThemes.length))
+  }
+
+  const handleShowLess = () => {
+    setVisibleCount((prev) => Math.max(4, prev - 4))
+  }
+
   return (
-    <section className="bg-white py-16 px-8 md:px-32">
+    <section className="bg-white py-16 px-6 md:px-32" id="themes">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-center mb-12 text-darkblue">
           Pilih Tema Undangan Digitalmu
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-          {themes.map((theme) => (
+          {visibleThemes.map((theme) => (
             <motion.div
               key={theme.name}
               className="bg-[#f9f9f9] rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
@@ -53,7 +96,6 @@ export default function GallerySection() {
                     className="object-contain"
                   />
                 </div>
-
                 <div className="text-center">
                   <p className="text-sm font-semibold text-gray-800">{theme.name}</p>
                   <p className="text-xs text-gray-500">{theme.price}</p>
@@ -75,6 +117,26 @@ export default function GallerySection() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Pagination Buttons */}
+        <div className="flex justify-center gap-4 mt-8">
+          {visibleCount < generateThemes.length && (
+            <button
+              onClick={handleShowMore}
+              className="px-6 py-2 border border-darkblue text-darkblue rounded hover:bg-darkblue hover:text-white transition text-sm"
+            >
+              Tampilkan Lebih Banyak
+            </button>
+          )}
+          {visibleCount > 4 && (
+            <button
+              onClick={handleShowLess}
+              className="px-6 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-200 transition text-sm"
+            >
+              Tampilkan Lebih Sedikit
+            </button>
+          )}
         </div>
       </div>
 

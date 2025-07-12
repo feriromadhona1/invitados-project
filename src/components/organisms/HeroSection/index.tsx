@@ -15,9 +15,8 @@ const acaraList = [
 ]
 
 const images = [
-  "/images/undangan-online.png",
   "/images/undanganA.webp",
-  "/images/undanganA.webp",
+  "/images/ChatGPT.png",
 ]
 
 export default function HeroSection() {
@@ -27,11 +26,11 @@ export default function HeroSection() {
   useEffect(() => {
     const intervalAcara = setInterval(() => {
       setCurrentAcara((prev) => (prev + 1) % acaraList.length)
-    }, 23000)
+    }, 3000)
 
     const intervalImage = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length)
-    }, 25000)
+    }, 8000)
 
     return () => {
       clearInterval(intervalAcara)
@@ -40,7 +39,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left px-6 md:px-32 py-10 bg-secondary gap-10">
+    <section id="herosection" className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left px-6 md:px-32 py-10 bg-secondary gap-10">
       {/* Text section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
