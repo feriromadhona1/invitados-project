@@ -89,10 +89,10 @@ export default function PricingSection() {
 
               <div className="flex flex-col gap-2">
                 <button className="border border-darkblue text-darkblue rounded px-4 py-2 text-sm bg-white hover:bg-[#2A4365] hover:text-white transition">
-                  Uji Coba Gratis
+                  Uji Coba Sekarang
                 </button>
                 <a
-                  href="https://wa.me/6281317185602?text=Halo admin, saya tertarik dengan paket undangan digital *{plan.name}*. Boleh dibantu ya?"
+                  href="https://wa.me/6285839265660?text=Halo admin, saya tertarik dengan paket undangan digital *{plan.name}*. Boleh dibantu ya?"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-primary text-darkblue rounded px-4 py-2 text-sm hover:bg-[#1EBE5D] transition"

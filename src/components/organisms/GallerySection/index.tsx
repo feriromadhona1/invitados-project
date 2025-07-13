@@ -61,7 +61,7 @@ export default function GallerySection() {
 
   const handleSendWhatsApp = () => {
     const message = encodeURIComponent(`Halo admin, saya ingin menggunakan tema undangan digital *${selectedTheme}*.`)
-    window.open(`https://wa.me/6281317185602?text=${message}`, '_blank')
+    window.open(`https://wa.me/6285839265660?text=${message}`, '_blank')
   }
 
   const handleShowMore = () => {

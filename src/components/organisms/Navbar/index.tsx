@@ -41,11 +41,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/6281317185602"
+            href="https://wa.me/6285839265660"
             target="_blank"
             className="bg-darkblue text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#1e324d] transition"
           >
-            Coba Gratis
+            Coba Sekarang
           </Link>
         </nav>
       </div>
@@ -64,12 +64,12 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281317185602"
+              href="https://wa.me/6285839265660"
               target="_blank"
               className="bg-darkblue text-white px-5 py-2 rounded-full font-semibold mt-2 hover:bg-[#1e324d] transition"
               onClick={() => setIsOpen(false)}
             >
-              Coba Gratis
+              Coba Sekarang
             </Link>
           </nav>
         </div>
